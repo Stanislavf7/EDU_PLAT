@@ -1,0 +1,128 @@
+{
+  "id": 2,
+  "step": 1,
+  "title": "Introduction to C++ Programming",
+  "description": "Learn the basics of C++ syntax, data types, control structures, and object-oriented programming concepts. Perfect for those with no prior programming experience.",
+  "fulldescription": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+  "difficulty": "Beginner",
+  "dateAdded": "2025-05-01",
+  "modules": [
+    {
+      "title": "Getting Started with C++",
+      "description": "Introduction to C++ basics and setting up the environment.",
+      "steps": [
+        {
+          "type": "text",
+          "content": "C++ is a powerful general-purpose programming language. Learn how to install a C++ compiler like GCC or Visual Studio and write your first \"Hello, World!\" program."
+        },
+        {
+          "type": "quiz-single",
+          "question": "What is the correct syntax to output \"Hello, World!\" in C++?",
+          "options": [
+            {
+              "text": "cout << \"Hello, World!\";",
+              "correct": true
+            },
+            {
+              "text": "print(\"Hello, World!\")",
+              "correct": false
+            },
+            {
+              "text": "echo \"Hello, World!\";",
+              "correct": false
+            },
+            {
+              "text": "printf(\"Hello, World!\");",
+              "correct": false
+            }
+          ],
+          "correctOption": 0
+        }
+      ]
+    },
+    {
+      "title": "Variables and Data Types",
+      "description": "Understanding variables, data types, and basic operations in C++.",
+      "steps": [
+        {
+          "type": "text",
+          "content": "Variables store data in C++. Common data types include int, float, double, char, and bool. Learn how to declare and initialize variables."
+        },
+        {
+          "type": "answer",
+          "question": "Write a C++ statement to declare an integer variable named \"age\" with a value of 25.",
+          "correctAnswer": "int age = 25;"
+        },
+        {
+          "type": "quiz-multi",
+          "question": "Which of the following are valid C++ data types?",
+          "options": [
+            {
+              "text": "int",
+              "correct": true
+            },
+            {
+              "text": "float",
+              "correct": true
+            },
+            {
+              "text": "string",
+              "correct": true
+            },
+            {
+              "text": "number",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "test",
+      "description": "test",
+      "steps": [
+        {
+          "type": "quiz-single",
+          "content": "",
+          "question": "test",
+          "options": [
+            {
+              "text": "test",
+              "correct": false
+            },
+            {
+              "text": "test",
+              "correct": false
+            }
+          ],
+          "correctOption": 0
+        },
+        {
+          "type": "quiz-single",
+          "content": "",
+          "question": "test",
+          "options": [
+            {
+              "text": "test",
+              "correct": false
+            }
+          ],
+          "correctOption": 0
+        }
+      ]
+    }
+  ],
+  "objectives": [
+    "Learn C++ syntax",
+    "Understand variables",
+    "Write basic programs"
+  ],
+  "prerequisites": "None",
+  "instructor": {
+    "name": "creator",
+    "title": "Lead Instructor"
+  },
+  "original_course_id": "2",
+  "status": "submitted",
+  "creator_id": 1
+}

@@ -1,0 +1,60 @@
+{
+  "id": 7,
+  "step": 1,
+  "title": "C++ Concurrency and Parallel Programming",
+  "description": "Learn how to write concurrent and parallel programs in C++ using threads, mutexes, and other synchronization primitives to improve performance.",
+  "fulldescription": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+  "difficulty": "Advanced",
+  "dateAdded": "2024-12-01",
+  "modules": [
+    {
+      "title": "Threads and Synchronization",
+      "description": "Using threads and synchronization primitives in C++.",
+      "steps": [
+        {
+          "type": "text",
+          "content": "Concurrency improves performance. Learn to use std::thread, std::mutex, and std::lock_guard in C++."
+        },
+        {
+          "type": "quiz-single",
+          "question": "What prevents race conditions in C++?",
+          "options": [
+            { "text": "Mutex", "correct": true },
+            { "text": "Thread", "correct": false },
+            { "text": "Pointer", "correct": false },
+            { "text": "Class", "correct": false }
+          ],
+          "correctOption": 0
+        }
+      ]
+    },
+    {
+      "title": "Parallel Algorithms",
+      "description": "Implementing parallel algorithms using C++.",
+      "steps": [
+        {
+          "type": "text",
+          "content": "Parallel algorithms leverage multiple cores. Learn to use std::execution policies in C++."
+        },
+        {
+          "type": "answer",
+          "question": "Write a C++ statement to sort a vector in parallel.",
+          "correctAnswer": "std::sort(std::execution::par, vec.begin(), vec.end());"
+        },
+        {
+          "type": "quiz-multi",
+          "question": "Which execution policies are available in C++17?",
+          "options": [
+            { "text": "std::execution::seq", "correct": true },
+            { "text": "std::execution::par", "correct": true },
+            { "text": "std::execution::async", "correct": false },
+            { "text": "std::execution::sync", "correct": false }
+          ]
+        }
+      ]
+    }
+  ],
+  "objectives": ["Master concurrency", "Implement parallel algorithms"],
+  "prerequisites": "Introduction to C++ Programming",
+  "instructor": { "name": "Dr. Evelyn Reed", "title": "Lead Instructor" }
+}

@@ -1,0 +1,60 @@
+{
+  "id": 3,
+  "step": 1,
+  "title": "Data Structures and Algorithms in C++",
+  "description": "Explore essential data structures like arrays, linked lists, trees, and graphs, and learn how to implement and analyze algorithms in C++.",
+  "fulldescription": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+  "difficulty": "Intermediate",
+  "dateAdded": "2025-04-15",
+  "modules": [
+    {
+      "title": "Arrays and Linked Lists",
+      "description": "Implementing and using arrays and linked lists in C++.",
+      "steps": [
+        {
+          "type": "text",
+          "content": "Arrays store elements in contiguous memory. Linked lists use nodes with pointers. Learn their implementation and trade-offs."
+        },
+        {
+          "type": "quiz-single",
+          "question": "What is the time complexity of accessing an element in an array?",
+          "options": [
+            { "text": "O(1)", "correct": true },
+            { "text": "O(n)", "correct": false },
+            { "text": "O(log n)", "correct": false },
+            { "text": "O(n^2)", "correct": false }
+          ],
+          "correctOption": 0
+        },
+        {
+          "type": "answer",
+          "question": "Write a C++ struct for a singly linked list node.",
+          "correctAnswer": "struct Node { int data; Node* next; };"
+        }
+      ]
+    },
+    {
+      "title": "Sorting Algorithms",
+      "description": "Understanding and implementing sorting algorithms.",
+      "steps": [
+        {
+          "type": "text",
+          "content": "Sorting algorithms like Bubble Sort, Quick Sort, and Merge Sort are essential. Learn their implementation in C++."
+        },
+        {
+          "type": "quiz-multi",
+          "question": "Which sorting algorithms have an average time complexity of O(n log n)?",
+          "options": [
+            { "text": "Quick Sort", "correct": true },
+            { "text": "Merge Sort", "correct": true },
+            { "text": "Bubble Sort", "correct": false },
+            { "text": "Insertion Sort", "correct": false }
+          ]
+        }
+      ]
+    }
+  ],
+  "objectives": ["Master arrays and linked lists", "Implement sorting algorithms"],
+  "prerequisites": "Introduction to C++ Programming",
+  "instructor": { "name": "creator", "title": "Lead Instructor" }
+}
