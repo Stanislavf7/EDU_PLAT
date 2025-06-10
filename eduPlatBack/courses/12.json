@@ -1,0 +1,107 @@
+{
+  "id": 11,
+  "title": "Продвинутые структуры данных в C++",
+  "description": "Углубите знания C++: массивы, указатели и структуры данных.",
+  "fulldescription": "Этот курс для тех, кто уже знает основы C++ и хочет изучить продвинутые темы, такие как массивы, указатели и структуры данных. Вы научитесь эффективно работать с памятью и создавать собственные типы данных. Курс включает теорию, тесты и задания по исправлению кода.",
+  "prerequisites": "Знание основ C++ (переменные, циклы, условия).",
+  "difficulty": "intermediate",
+  "objectives": [
+    "Освоить работу с массивами и строками",
+    "Понять указатели и управление памятью",
+    "Научиться создавать и использовать структуры",
+    "Развивать навыки отладки кода"
+  ],
+  "modules": [
+    {
+      "title": "Массивы и строки",
+      "description": "Изучите, как хранить и обрабатывать наборы данных с помощью массивов и строк.",
+      "steps": [
+        {
+          "type": "text",
+          "content": "Массивы в C++ позволяют хранить набор данных одного типа. Строки (`std::string`) используются для работы с текстом.\n\nПример массива:\n\n#include <iostream>\nint main() {\n  int arr[3] = {1, 2, 3};\n  for (int i = 0; i < 3; i++) {\n    std::cout << arr[i] << \" \";\n  }\n  return 0;\n}\n\nПример строки:\n\n#include <string>\nstd::string name = \"Alice\";\nstd::cout << \"Привет, \" << name;\n"
+        },
+        {
+          "type": "quiz-multi",
+          "question": "Какие из следующих утверждений о массивах в C++ верны?",
+          "options": [
+            { "text": "Массив может содержать элементы разных типов", "correct": false },
+            { "text": "Размер массива должен быть известен на этапе компиляции", "correct": true },
+            { "text": "Массивы индексируются с 0", "correct": true },
+            { "text": "Массивы автоматически увеличиваются в размере", "correct": false }
+          ]
+        },
+        {
+          "type": "fix-error",
+          "question": "Исправьте код, чтобы он корректно выводил элементы массива:",
+          "initialCode": "#include <iostream>\nint main() {\n  int arr[3] = {10, 20, 30};\n  for (int i = 0; i <= 3; i++)\n    std::cout << arr[i] << \" \";\n  return 0;\n}",
+          "correctCode": "#include <iostream>\nint main() {\n  int arr[3] = {10, 20, 30};\n  for (int i = 0; i < 3; i++)\n    std::cout << arr[i] << \" \";\n  return 0;\n}"
+        }
+      ]
+    },
+    {
+      "title": "Указатели и динамическая память",
+      "description": "Поймите, как работают указатели и как управлять памятью в C++.",
+      "steps": [
+        {
+          "type": "text",
+          "content": "Указатели хранят адреса памяти. Операторы `*` и `&` используются для работы с указателями. Динамическая память выделяется с помощью `new` и освобождается с помощью `delete`.\n\nПример:\n\n#include <iostream>\nint main() {\n  int* ptr = new int(5);\n  std::cout << *ptr << std::endl;\n  delete ptr;\n  return 0;\n}\n"
+        },
+        {
+          "type": "quiz-single",
+          "question": "Что делает оператор `delete` в C++?",
+          "options": [
+            { "text": "Объявляет указатель", "correct": false },
+            { "text": "Освобождает динамическую память", "correct": true },
+            { "text": "Очищает переменную", "correct": false },
+            { "text": "Создаёт массив", "correct": false }
+          ],
+          "correctOption": 1
+        },
+        {
+          "type": "answer",
+          "question": "Какой оператор используется для получения адреса переменной в C++?",
+          "correctAnswer": "&"
+        },
+        {
+          "type": "fix-error",
+          "question": "Исправьте код, чтобы избежать утечки памяти:",
+          "initialCode": "#include <iostream>\nint main() {\n  int* ptr = new int(10);\n  std::cout << *ptr << std::endl;\n  return 0;\n}",
+          "correctCode": "#include <iostream>\nint main() {\n  int* ptr = new int(10);\n  std::cout << *ptr << std::endl;\n  delete ptr;\n  return 0;\n}"
+        }
+      ]
+    },
+    {
+      "title": "Структуры и классы",
+      "description": "Научитесь создавать пользовательские типы данных с помощью структур.",
+      "steps": [
+        {
+          "type": "text",
+          "content": "Структуры (`struct`) позволяют объединять данные разных типов.\n\nПример:\n\n#include <iostream>\n#include <string>\nstruct Person {\n  std::string name;\n  int age;\n};\nint main() {\n  Person p = {\"Alice\", 25};\n  std::cout << p.name << \" \" << p.age;\n  return 0;\n}\n"
+        },
+        {
+          "type": "quiz-single",
+          "question": "Как называется ключевое слово для создания структуры в C++?",
+          "options": [
+            { "text": "class", "correct": false },
+            { "text": "struct", "correct": true },
+            { "text": "type", "correct": false },
+            { "text": "data", "correct": false }
+          ],
+          "correctOption": 1
+        },
+        {
+          "type": "fix-error",
+          "question": "Исправьте код, чтобы он корректно использовал структуру:",
+          "initialCode": "#include <iostream>\n#include <string>\nstruct Person {\n  string name;\n  int age;\n};\nint main() {\n  Person p = {\"Bob\", 30};\n  cout << p.name << \" \" << p.age;\n  return 0;\n}",
+          "correctCode": "#include <iostream>\n#include <string>\nstruct Person {\n  std::string name;\n  int age;\n};\nint main() {\n  Person p = {\"Bob\", 30};\n  std::cout << p.name << \" \" << p.age;\n  return 0;\n}"
+        }
+      ]
+    }
+  ],
+  "instructor": {
+    "name": "admin",
+    "title": "Хороший человек"
+  },
+  "creator_id": 1,
+  "original_course_id": null
+}

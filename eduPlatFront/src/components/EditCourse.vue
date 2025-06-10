@@ -31,28 +31,44 @@ const accessibleCourses = computed(() => {
 
 async function editCourse(course) {
   const courseIdStr = String(course.id).toLowerCase();
+  let pendingCourse;
   if (courseIdStr.includes('c') || courseIdStr.includes('n')) {
     const currentCourse = await pendingStore.fetchPendingCourseById(courseIdStr);
     const newVersion = (currentCourse?.version || 1) + 1;
-    const pendingCourse = {
+    pendingCourse = {
       id: courseIdStr,
       original_course_id: currentCourse?.original_course_id || null,
       creator_id: userStore.id,
-      version: newVersion
+      version: newVersion,
+      modules: currentCourse?.modules || [],
+      title: course.title || '',
+      description: course.description || '',
+      fulldescription: currentCourse?.fulldescription || '', 
+      objectives: currentCourse?.objectives || [], 
+      prerequisites: currentCourse?.prerequisites || 'None', 
+      instructor: currentCourse?.instructor || { name: userStore.username || '', title: 'Course Author' },
+      status: currentCourse?.status || 'draft'
     };
-    await pendingStore.addOrUpdateCourse(pendingCourse);
-    router.push({ name: 'MakeCourse', params: { courseId: courseIdStr, step: 1 } });
   } else {
     const draftId = `c${courseIdStr}`;
-    const pendingCourse = {
+    const originalCourse = await courseStore.fetchCourseById(courseIdStr); 
+    pendingCourse = {
       id: draftId,
       original_course_id: courseIdStr,
       creator_id: userStore.id,
-      version: 2
+      version: 1,
+      modules: [],
+      title: course.title || '',
+      description: course.description || '',
+      fulldescription: originalCourse?.fulldescription || '', 
+      objectives: originalCourse?.objectives || [], 
+      prerequisites: originalCourse?.prerequisites || 'None',
+      instructor: originalCourse?.instructor || { name: userStore.username || '', title: 'Course Author' },
+      status: 'draft'
     };
-    await pendingStore.addOrUpdateCourse(pendingCourse);
-    router.push({ name: 'MakeCourse', params: { courseId: draftId, step: 1 } });
   }
+  await pendingStore.addOrUpdateCourse(pendingCourse);
+  router.push({ name: 'MakeCourse', params: { courseId: pendingCourse.id, step: 1 } });
 }
 
 async function addCourse() {

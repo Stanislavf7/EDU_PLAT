@@ -52,9 +52,9 @@ const isCourseFinished = computed(() => flatSteps.value.length && userStore.prog
 const correctMultiOptions = computed(() =>
   currentStepData.value.type === 'quiz-multi'
     ? currentStepData.value.options
-        ?.map((opt, idx) => ({ idx, text: opt.text, correct: opt.correct }))
-        ?.filter(opt => opt.correct)
-        .map(opt => opt.text) || []
+      ?.map((opt, idx) => ({ idx, text: opt.text, correct: opt.correct }))
+      ?.filter(opt => opt.correct)
+      .map(opt => opt.text) || []
     : []
 );
 
@@ -280,14 +280,16 @@ const submitAnswer = async () => {
         <div class="progress-indicator">
           <p>Прогресс: {{ userStore.progress[courseId]?.length || 0 }}/{{ flatSteps.length }}</p>
           <div class="progress-bar">
-            <div class="progress-fill" :style="{ width: ((userStore.progress[courseId]?.length || 0) / flatSteps.length * 100) + '%' }"></div>
+            <div class="progress-fill"
+              :style="{ width: ((userStore.progress[courseId]?.length || 0) / flatSteps.length * 100) + '%' }"></div>
           </div>
         </div>
         <div class="main-inner">
           <div class="breadcrumb">
             <router-link :to="{ name: 'Overview', params: { id: courseId } }">{{ course.title || 'Курс' }}</router-link>
             <span>/</span>
-            <span>{{ course.modules[currentStepData.moduleIdx]?.title || 'Модуль' }}: Шаг {{ currentStepData.stepIdx + 1 }}</span>
+            <span>{{ course.modules[currentStepData.moduleIdx]?.title || 'Модуль' }}: Шаг {{ currentStepData.stepIdx + 1
+              }}</span>
           </div>
           <div>
             <h1>{{ course.modules[currentStepData.moduleIdx]?.title || 'Модуль' }}</h1>
@@ -299,7 +301,8 @@ const submitAnswer = async () => {
           <div v-else-if="currentStepData.type === 'quiz-single'">
             <p class="quiz-question">{{ currentStepData.question || '' }}</p>
             <div v-if="isStepCompleted">
-              <p class="feedback-correct">Правильный ответ: {{ currentStepData.options[currentStepData.correctOption]?.text || '' }}</p>
+              <p class="feedback-correct">Правильный ответ: {{
+                currentStepData.options[currentStepData.correctOption]?.text || '' }}</p>
             </div>
             <div v-else>
               <label v-for="(option, idx) in currentStepData.options || []" :key="idx" class="quiz-label">
@@ -335,7 +338,7 @@ const submitAnswer = async () => {
             </div>
           </div>
           <div v-else-if="currentStepData.type === 'fix-error'">
-            <p class="quiz-question">Исправьте ошибки в следующем C++ коде:</p>
+            <p class="quiz-question">{{ currentStepData.question || currentStepData.taskText || 'Исправьте ошибки в следующем C++ коде:' }}</p>
             <div v-if="isStepCompleted">
               <p class="feedback-correct">Код исправлен правильно!</p>
               <CodeMirrorEditor :model-value="currentStepData.correctCode" :read-only="true" />
@@ -344,13 +347,17 @@ const submitAnswer = async () => {
               <CodeMirrorEditor v-model="userCode" />
             </div>
           </div>
-          <p v-if="feedback" :class="{ 'feedback-correct': feedback.includes('Верно') || feedback.includes('исправлены'), 'feedback-incorrect': !feedback.includes('Верно') && !feedback.includes('исправлены') }">
+          <p v-if="feedback"
+            :class="{ 'feedback-correct': feedback.includes('Верно') || feedback.includes('исправлены'), 'feedback-incorrect': !feedback.includes('Верно') && !feedback.includes('исправлены') }">
             {{ feedback }}
           </p>
           <div class="navigation">
-            <button class="nav-button previous" @click="goToStep(currentStep - 1)" :disabled="currentStep <= 1">← Назад</button>
-            <button v-if="!isStepCompleted && currentStepData.type !== 'text'" class="nav-button submit" @click="submitAnswer">Проверить</button>
-            <button class="nav-button next" @click="handleNextStep" :disabled="!isStepCompleted && currentStepData.type !== 'text'">Далее →</button>
+            <button class="nav-button previous" @click="goToStep(currentStep - 1)" :disabled="currentStep <= 1">←
+              Назад</button>
+            <button v-if="!isStepCompleted && currentStepData.type !== 'text'" class="nav-button submit"
+              @click="submitAnswer">Проверить</button>
+            <button class="nav-button next" @click="handleNextStep"
+              :disabled="!isStepCompleted && currentStepData.type !== 'text'">Далее →</button>
           </div>
         </div>
       </div>
@@ -359,7 +366,12 @@ const submitAnswer = async () => {
 </template>
 
 <style scoped>
-p, h1, h2, h3 { margin: 0; }
+p,
+h1,
+h2,
+h3 {
+  margin: 0;
+}
 
 .progress-container {
   display: flex;
@@ -509,6 +521,7 @@ p, h1, h2, h3 { margin: 0; }
   color: #0d141c;
   margin-bottom: 12px;
   text-align: start;
+  white-space: pre-wrap;
 }
 
 .quiz-label {
@@ -522,7 +535,7 @@ p, h1, h2, h3 { margin: 0; }
 }
 
 .quiz-input {
-  width: 100%;
+  width: 95%;
   min-height: 80px;
   padding: 12px;
   border: 1px solid #cedae8;
@@ -621,5 +634,6 @@ textarea {
   color: #0d141c;
   margin-bottom: 16px;
   text-align: start;
+  white-space: pre-wrap;
 }
 </style>

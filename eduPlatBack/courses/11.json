@@ -1,0 +1,144 @@
+{
+  "id": 11,
+  "title": "Основы программирования на C++",
+  "description": "Освойте базовые концепции программирования на C++ с нуля!",
+  "fulldescription": "Этот курс предназначен для начинающих программистов. Вы изучите основы языка C++, включая переменные, типы данных, условия, циклы и работу с вводом/выводом. Курс включает теоретические уроки, тесты и практические задания по исправлению кода, чтобы закрепить знания.",
+  "prerequisites": "Базовые навыки работы с компьютером. Знание программирования не требуется.",
+  "difficulty": "Начальный",
+  "objectives": [
+    "Понять основы синтаксиса C++",
+    "Научиться работать с переменными и типами данных",
+    "Освоить условные операторы и циклы",
+    "Создавать простые программы с вводом/выводом"
+  ],
+  "modules": [
+    {
+      "title": "Введение в C++",
+      "description": "Первые шаги в программировании на C++: настройка среды и написание простых программ.",
+      "steps": [
+        {
+          "type": "text",
+          "content": "C++ — это мощный язык программирования общего назначения, созданный Бьярне Страуструпом. Он используется для разработки игр, приложений и системного ПО. В этом модуле вы узнаете, как настроить компилятор и написать свою первую программу.\n\nПример программы:\n\n#include <iostream>\nint main() {\n  std::cout << \"Hello, World!\" << std::endl;\n  return 0;\n}\n\nЭта программа выводит текст 'Hello, World!' в консоль."
+        },
+        {
+          "type": "quiz-single",
+          "question": "Что делает оператор std::cout в C++?",
+          "options": [
+            {
+              "text": "Считывает данные с клавиатуры",
+              "correct": false
+            },
+            {
+              "text": "Выводит данные в консоль",
+              "correct": true
+            },
+            {
+              "text": "Объявляет переменную",
+              "correct": false
+            },
+            {
+              "text": "Запускает цикл",
+              "correct": false
+            }
+          ],
+          "correctOption": 1
+        },
+        {
+          "type": "fix-error",
+          "question": "Исправьте ошибку в коде, чтобы он выводил 'Welcome to C++':",
+          "initialCode": "#include <iostream>\nint main() {\n  cout << \"Welcome to C++\";\n  return 0;\n}",
+          "correctCode": "#include <iostream>\nint main() {\n  std::cout << \"Welcome to C++\";\n  return 0;\n}"
+        }
+      ]
+    },
+    {
+      "title": "Переменные и типы данных",
+      "description": "Изучите, как объявлять и использовать переменные разных типов в C++.",
+      "steps": [
+        {
+          "type": "text",
+          "content": "В C++ переменные используются для хранения данных. Основные типы данных:\n- `int`: целые числа (например, 5, -10).\n- `float`: числа с плавающей точкой (например, 3.14).\n- `char`: символы (например, 'A').\n- `bool`: логические значения (true/false).\n\nПример:\n\nint age = 25;\nfloat pi = 3.14;\nstd::cout << \"Возраст: \" << age << \", Пи: \" << pi << std::endl;\n"
+        },
+        {
+          "type": "quiz-multi",
+          "question": "Какие из следующих типов данных существуют в C++?",
+          "options": [
+            {
+              "text": "int",
+              "correct": true
+            },
+            {
+              "text": "float",
+              "correct": true
+            },
+            {
+              "text": "string",
+              "correct": true
+            },
+            {
+              "text": "number",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "type": "answer",
+          "question": "Какой тип данных используется для хранения целого числа, например 42?",
+          "correctAnswer": "int"
+        },
+        {
+          "type": "fix-error",
+          "question": "Исправьте код, чтобы он корректно объявлял переменную и выводил её значение:",
+          "initialCode": "#include <iostream>\nint main() {\n  number x = 10;\n  std::cout << x << std::endl;\n  return 0;\n}",
+          "correctCode": "#include <iostream>\nint main() {\n  int x = 10;\n  std::cout << x << std::endl;\n  return 0;\n}"
+        }
+      ]
+    },
+    {
+      "title": "Условия и циклы",
+      "description": "Научитесь использовать условные операторы и циклы для управления логикой программы.",
+      "steps": [
+        {
+          "type": "text",
+          "content": "Условные операторы (`if`, `else`) позволяют выполнять код в зависимости от условий. Циклы (`for`, `while`) повторяют код несколько раз.\n\nПример цикла for:\n\n#include <iostream>\nint main() {\n  for (int i = 1; i <= 5; i++) {\n    std::cout << i << \" \";\n  }\n  return 0;\n}\n\nВывод: 1 2 3 4 5"
+        },
+        {
+          "type": "quiz-single",
+          "question": "Что выведет следующий код?\n\nint x = 3;\nif (x > 2) std::cout << \"Большое\";\nelse std::cout << \"Маленькое\";\n",
+          "options": [
+            {
+              "text": "Большое",
+              "correct": true
+            },
+            {
+              "text": "Маленькое",
+              "correct": false
+            },
+            {
+              "text": "Ничего",
+              "correct": false
+            },
+            {
+              "text": "Ошибка компиляции",
+              "correct": false
+            }
+          ],
+          "correctOption": 0
+        },
+        {
+          "type": "fix-error",
+          "question": "Исправьте код, чтобы он выводил числа от 1 до 3:",
+          "initialCode": "#include <iostream>\nint main() {\n  for (int i = 0; i < 3; i++)\n    std::cout << i << std::endl;\n  return 0;\n}",
+          "correctCode": "#include <iostream>\nint main() {\n  for (int i = 1; i <= 3; i++)\n    std::cout << i << std::endl;\n  return 0;\n}"
+        }
+      ]
+    }
+  ],
+  "instructor": {
+    "name": "admin",
+    "title": "Хороший человек"
+  },
+  "creator_id": 1,
+  "original_course_id": "11",
+  "status": "на проверке"
+}

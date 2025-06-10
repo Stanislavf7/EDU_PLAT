@@ -143,10 +143,12 @@ function goToStep(step) {
 
           <div v-else-if="currentStepData.type === 'fix-error'">
             <p class="quiz-question">
-              {{ currentStepData.taskText || 'Задание не указано' }}
+              {{ currentStepData.taskText || currentStepData.question || 'Задание не указано' }}
             </p>
             <p class="quiz-subtitle">Код с ошибками:</p>
             <CodeMirrorEditor :model-value="currentStepData.initialCode || ''" :read-only="true" />
+            <p class="quiz-subtitle">Правильный код:</p>
+            <CodeMirrorEditor :model-value="currentStepData.correctCode || ''" :read-only="true" />
           </div>
 
 
@@ -259,6 +261,7 @@ function goToStep(step) {
   color: #0d141c;
   margin-bottom: 16px;
   text-align: start;
+  white-space: pre-wrap;
 }
 
 .quiz-question {
@@ -267,6 +270,7 @@ function goToStep(step) {
   color: #0d141c;
   margin-bottom: 12px;
   text-align: start;
+  white-space: pre-wrap;
 }
 
 .answer-preview {
